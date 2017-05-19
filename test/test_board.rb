@@ -32,18 +32,11 @@ class TestBoard < Minitest::Test
 	 	board.printBoard
 	  end
 
+	  def test_printBoard_27_x_27
+	 	board = Board.new(27,27)
+	 	board.printBoard
+	  end
 
-	#  def test_printBoard_27_x_27
-	#  	board = Board.new(27)
-	#  	board.printBoard(board,27)
-	#  end
-	# # def test_get_set_position
-	# # 	board = Board.new
-	# # 	player1 = Player.new("X","Dover")
-	# # 	result = [0,0,0,"X",0,0,0,0,0]
-	# # 	assert_equal(result,board.setPosition(player1,3))
-
-	# # end
 
 	# # def test_check_winner
 	# # 	board = Board.new

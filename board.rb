@@ -25,50 +25,87 @@ class Board
 	end	
 
 	#Method to print a dinamic board on screen. 
-	#Num represents one side of the dimension, for example num=4 for 4X4 board
 	def printBoard
 		
-		for i in 0..@m
-			for j in 0..@n
-				puts "#{i}#{j}"
-
-				p"#{@board_table[i][j]}|"
+		for i in 0..@m -1 
+			for j in 0..@n -1
+				print"#{@board_table[i][j]}|"
 			end	
+			puts ""
 		end
 	end
 
     
-    #Check for a winner
+   
+    def getLength(player,i,j,x,y,k)#(player,0,0,-1,-1,3)
+    	length = 0
+    	#check if position itself is populated
+    	if board_table[i][j] == player.mark
+    		length+=1
+		end			
 
-    # def getLength(player,x,y,k)
-    # 	length = 0
+    	for q in 1..k -1
+    		for r in 1..k -1
+    			s = q * x 
+    			t = r * y 
+    			if s >= 0 && s < k && t >= 0 && t < k 
+    				if @board_table[s][t] == player.mark
+    					length+=1
+    				end
+    			end
+    			r+=1
+    		end
+    		q+=1
+    	end
+    	puts "length=#{length}"
+    	return length	
+    end
 
-    # 	for q in 2..k
-    # 		for r in 2..k
-    # 			if board_table[q*x][q*y] == player.mark
-    # 				length+=1
-    # 			end
-    # 			r++
-    # 		end
-    # 		q++
-    # 	end
+    #check winner based on the position and number of necessary spaces occupied(K)
+    #Check each space around the position and spaces around(getLenght) 
+	def check_winner(player,k)
 
-    # 	return length	
-    # end
+		#line
+		for i in 0..@m-1
+			#column
+			for j in 0..@n-1
+			l1 = getLength(player,i,j,-1,-1, k)
+				if l1 == k
+					return true
+				end
+			l2 = getLength(player,i,j,-1,0,k)
+				if l2 == k
+					return true
+				end
+			l3 = getLength(player,i,j,-1,1,k)
+				if l3 == k
+					return true
+				end
+			l4 = getLength(player,i,j,0,-1,k)
+				if l4 == k
+					return true
+				end
+			l5 = getLength(player,i,j,0,1,k)
+				if l5 == k
+					return true
+				end
+			
+			l6 = getLength(player,i,j,1,-1,k)
+				if l6 == k
+					return true
+				end
+			l7 = getLength(player,i,j,1,0,k)
+				if l7 == k
+					return true	
+				end	
+			l8 = getLength(player,i,j,1,1,k)
+				if l8 == k
+					return true	
+				end
+			end
+		end
 
-
-	# def check_winner(player,k,position)
-
-
-	# 	#line
-	# 	for i in 0..m-1
-	# 		#column
-	# 		for j in 0..n-1
-	# 		l1 = getLength(player)  	
-	# 		end
-	# 	end
-
-	# end
+	end
 
 
 	#Check if its position available
