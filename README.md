@@ -18,4 +18,5 @@ For the console game:
    2. Clone this repository.
    
    3. Open your terminal and go to the test folder
-   4. Run the file with ruby test_file.rb 
+   4. Run the file with ruby test_file.rb
+   *Run test_game.rb / test_game.rb and test_winner.rb
