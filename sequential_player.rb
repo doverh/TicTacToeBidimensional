@@ -6,18 +6,18 @@ class Sequential_player
 	 	@mark = mark
 	 end
 
-	def getMove(board)
+	def getMove(board,m,n)
 	
-		m,n = getNextAvailablePosition(board)
-		while positionAvailable?(board,position) == false
-				position = getNextAvailablePosition(board)
+		positionM,positionN = getNextAvailablePosition(board,m,n)
+		while positionAvailable?(board,positionM,positionN) == false
+				positionM,positionN = getNextAvailablePosition(board)
 		end
-		return position
+		return positionM,positionN
 	end
 
 
 	def positionAvailable?(board,m,n)
-		if board[m][n] == "-"
+		if board.getPosition(m,n) == "-"
 			return true
 		else
 			return false
@@ -30,9 +30,15 @@ class Sequential_player
 	end
 
 
-	def getNextAvailablePosition(board)
-		m,n = board.index("-")
-	end
+	def getNextAvailablePosition(board,m,n)
+		for i in 0..m 
+			for j in 0..m
+				if board.getPosition(i,j) == "-"
+					return i,j
+				end
+			end
+		end
+	end			
 
 
 end
