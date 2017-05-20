@@ -2,7 +2,7 @@
 
 # Introduction
 
-This repository include a Tic Tac Toe game with a two dimension array, a web app developed using Ruby, Sinatra, HTML and CSS
+This repository include a Tic Tac Toe game with a two dimension array.
 The game allow you to play against other human or three different levels of computer opponents, easy(random algorithm), medium(sequential algorithm) and hard(unbeateable algorithm).
 
 On the console interface you can also choose the size of the board.
@@ -17,8 +17,7 @@ For the console game:
    
    2. Clone this repository.
    
-   3. Run the file with command: ruby "app.rb" 
-
-For the UI game:
-
-Comming soon
+   3. Open your terminal and go to the test folder
+   4. Run the file with ruby test_file.rb
+   
+   *Run test_game.rb / test_board.rb and test_winner.rb
