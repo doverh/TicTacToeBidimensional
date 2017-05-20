@@ -6,12 +6,15 @@ class Random_player
 	 	@mark = mark
 	 end
 
-	def getMove(board)
-		position[Random.rand(0..m)][Random.rand(0..n)] = "O" 
-		while positionAvailable?(board,position)== false
-			position[Random.rand(0..m)][Random.rand(0..n)] = "O" 
+	def getMove(board,m,n)
+		positionM = Random.rand(0..m-1)
+		positionN = Random.rand(0..n-1)
+		while positionAvailable?(board,positionM,positionN) == false
+			positionM = Random.rand(0..m-1)
+			positionN = Random.rand(0..n-1)
 		end
-		return position
+		puts "Position returned M = #{positionM} N =#{positionN}"
+		return positionM, positionN
 
 	end
 		
@@ -20,7 +23,7 @@ class Random_player
 	end	
 
 	def positionAvailable?(board,m,n)
-		if board[m][n] == "-"
+		if board.getPosition(m,n) == "-"
 			return true
 		else
 			return false

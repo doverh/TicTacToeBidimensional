@@ -8,7 +8,7 @@ class Sequential_player
 
 	def getMove(board)
 	
-		position = getNextAvailablePosition(board)
+		m,n = getNextAvailablePosition(board)
 		while positionAvailable?(board,position) == false
 				position = getNextAvailablePosition(board)
 		end
@@ -31,7 +31,7 @@ class Sequential_player
 
 
 	def getNextAvailablePosition(board)
-		position = board.index("-")
+		m,n = board.index("-")
 	end
 
 

@@ -14,10 +14,10 @@ class TestGame < Minitest::Test
 	#test when playing again RandomAI 
 	def test_game_Random_level
 		board = Board.new(3,3)
-		player1 = Human_player.new("X")	
+		player1 = Random_player.new("X")	
 		player2 = Random_player.new("O")	
 		game = Game.new(board)		
-		assert_equal("Player1 won", game.playAi(board,player1,player2))
+		board = game.playAi(board,player1,player2)	
 	end
 
 	# def test_game_Sequential_Unbeatable

@@ -35,70 +35,95 @@ class Board
 		end
 	end
 
+	def getm
+		return @m
+	end
     
-   
+   	def getn
+   		return @n
+   	end
+
     def getLength(player,i,j,x,y,k)#(player,0,0,-1,-1,3)
     	length = 0
     	#check if position itself is populated
     	if board_table[i][j] == player.mark
     		length+=1
 		end			
-
+		# puts "i = #{i} j = #{j}" 
+		# puts "x = #{x} j = #{y}"
     	for q in 1..k -1
-    		for r in 1..k -1
-    			s = q * x 
-    			t = r * y 
-    			if s >= 0 && s < k && t >= 0 && t < k 
-    				if @board_table[s][t] == player.mark
+    		 #for r in 1..k -1
+    		 	s = i + x * q 
+    		 	t = j + y * q
+    		 	# puts "s = #{s} t = #{t}" 
+    		 	if s >= 0 && s < k && t >= 0 && t < k 
+    				
+    				if board_table[s][t] == player.mark
     					length+=1
     				end
     			end
-    			r+=1
-    		end
+    			#  r+=1
+    		 # end
     		q+=1
     	end
-    	puts "length=#{length}"
+    	#puts "length=#{length}"
     	return length	
     end
 
     #check winner based on the position and number of necessary spaces occupied(K)
     #Check each space around the position and spaces around(getLenght) 
-	def check_winner(player,k)
-
+	def check_winner(player)
+		k = @m
 		#line
 		for i in 0..@m-1
 			#column
 			for j in 0..@n-1
 			l1 = getLength(player,i,j,-1,-1, k)
+				#puts "l1 #{l1}"
 				if l1 == k
 					return true
+					
 				end
 			l2 = getLength(player,i,j,-1,0,k)
+				#puts "l2 #{l2}"
+
 				if l2 == k
 					return true
 				end
 			l3 = getLength(player,i,j,-1,1,k)
+					#puts "l3 #{l3}"
+
 				if l3 == k
 					return true
 				end
 			l4 = getLength(player,i,j,0,-1,k)
+					#puts "l4 #{l4}"
+
 				if l4 == k
 					return true
 				end
 			l5 = getLength(player,i,j,0,1,k)
+					#puts "l5 #{l5}"
+
 				if l5 == k
 					return true
 				end
 			
 			l6 = getLength(player,i,j,1,-1,k)
+					#puts "l6 #{l6}"
+
 				if l6 == k
 					return true
 				end
 			l7 = getLength(player,i,j,1,0,k)
+					#puts "l7 #{l7}"
+
 				if l7 == k
 					return true	
 				end	
 			l8 = getLength(player,i,j,1,1,k)
+					#puts "l8 #{l8}"
+
 				if l8 == k
 					return true	
 				end
