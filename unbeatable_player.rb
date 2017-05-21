@@ -10,7 +10,7 @@ class Unbeatable_player
 		return false
 	end
 
-	 def getMove(board)
+	 def getMove(board,m,n)
 
 	 	#Identify unbetable mark and player mark
 	 	cpu_mark = mark
@@ -68,7 +68,7 @@ class Unbeatable_player
 
 	#Return true or false if possition is available
 	def positionAvailable?(board,m,n)
-		if board[m][n] == "-"
+		if board.getPosition(m,n) == "-"
 			return true
 		else
 			return false

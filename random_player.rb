@@ -13,7 +13,6 @@ class Random_player
 			positionM = Random.rand(0..m-1)
 			positionN = Random.rand(0..n-1)
 		end
-		puts "Position returned M = #{positionM} N =#{positionN}"
 		return positionM, positionN
 
 	end

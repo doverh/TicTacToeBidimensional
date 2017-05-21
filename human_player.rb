@@ -1,19 +1,26 @@
 class Human_player
 
-	attr_accessor :mark#, :id
+	attr_accessor :mark
 
 	#Human or Computer
 	def initialize(mark)
 		@mark = mark
-		#@id = id
 	end
 
-	def getMove(board)
-		# puts ""
-		# puts "Player #{@mark} inform a position: "
+	def getMove(board,m,n)
+		 puts "Player #{@mark} inform position m(mxn) "
+			 positionM = gets.chomp.to_i
+		puts "Player #{@mark} inform position n(mxn) "
+			 positionN = gets.chomp.to_i
+	    while positionAvailable?(board,positionM,positionN) == false
+			  
+			 puts "Player #{@mark} inform position m(mxn) "
+			     positionM = gets.chomp.to_i
+			 puts "Player #{@mark} inform position n(mxn) "
+				 positionN = gets.chomp.to_i
+		end
 
-			# position = gets.chomp
-			# return position.to_i
+	     return positionM,positionN
 
 	end
 	
@@ -22,7 +29,7 @@ class Human_player
 	end
 
 	def positionAvailable?(board,m,n)
-		if board[m][n] == "-"
+		if board.getPosition(m,n) == "-"
 			return true
 		else
 			return false

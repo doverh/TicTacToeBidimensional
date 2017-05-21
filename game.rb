@@ -40,7 +40,7 @@ end
 #   end    	
 
 #if flag is not human
-def playAi(board_table,player1,player2)
+def play(board_table,player1,player2)
 	   
 		loop do 
 			#call the method set position returning player and position
